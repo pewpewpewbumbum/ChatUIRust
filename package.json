@@ -2,11 +2,11 @@
   "name": "chatui-deepseek",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build:umd && npm run build:css && mkdir -p public && cp -r dist/* public/",
+    "build": "npm run clean && npm install && rollup -c && lessc src/styles/index.less public/index.css && cp src/index.html public/",
     "build:umd": "BABEL_ENV=umd rollup -c",
     "build:css": "lessc src/styles/index.less dist/index.css",
     "start": "serve public",
-    "clean": "rm -rf dist public"
+    "clean": "rm -rf public && mkdir -p public"
   },
   "dependencies": {
     "react": "^18.2.0",
